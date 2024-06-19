@@ -1,0 +1,57 @@
+repos:
+  - id: /.*/
+    allow_custom_workflows: true
+    allowed_overrides:
+      - apply_requirements
+      - workflow
+    apply_requirements:
+      - approved
+    workflow: default
+
+
+# atlantis.yaml
+
+# GitHub integration settings
+github:
+  user: your-github-username
+  token: your-github-token
+  webhook_secret: your-webhook-secret  # Optional: GitHub webhook secret for validation
+
+# Atlantis server settings
+server:
+  # Base URL for Atlantis server (optional, defaults to the address Atlantis is running on)
+  # base_url: https://atlantis.yourdomain.com
+
+  # Port on which Atlantis listens (default: 4141)
+  # port: 4141
+
+  # Repository level configuration
+  repo_config: "atlantis.yaml"  # Path to per-repository configuration file (optional)
+
+  # Delete branches automatically after the corresponding pull request is merged (default: false)
+  # delete_source_branch_on_merge: true
+
+  # Configure the log level (debug, info, warn, error) (default: info)
+  # log_level: debug
+
+  # Automatically apply plans if no workflow specified (default: false)
+  # auto_apply: true
+
+  # Parallel plans (default: 0 which means no limit)
+  # parallel_plan: 2
+
+  # Allowed users who can run Atlantis commands (optional)
+  # allowed_users:
+  #   - user1
+  #   - user2
+
+  # Allowed repositories where Atlantis can manage pull requests (optional)
+  # allowed_repos:
+  #   - org/repo1
+  #   - org/repo2
+
+# Projects configuration (optional, defines workflow-specific behavior)
+# projects:
+#   my-project:
+#     dir: path/to/my-project
+#     workflow: custom-workflow.yaml
